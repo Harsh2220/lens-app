@@ -1,11 +1,6 @@
-"use client";
-
-import { useRouter } from "next/navigation";
 import React from "react";
 
 export default function Hero() {
-  const router = useRouter();
-
   return (
     <section className="overflow-hidden min-h-[calc(100vh-77px)]">
       <div className="relative min-h-[calc(100vh-70px)] flex items-center">
