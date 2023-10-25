@@ -4,8 +4,9 @@ import formatHandle from "@/utils/formatHandle";
 import getIPFSLink from "@/utils/getIPFSLink";
 import getRawURL from "@/utils/getRawURL";
 import { Profile } from "@lens-protocol/react-web";
+import React from "react";
 
-export default function UserCard({ profile }: { profile: Profile }) {
+function UserCard({ profile }: { profile: Profile }) {
   return (
     <div className="max-w-sm border border-white border-opacity-10 rounded-lg text-gray-50">
       <div className="w-full">
@@ -59,3 +60,5 @@ export default function UserCard({ profile }: { profile: Profile }) {
     </div>
   );
 }
+
+export default React.memo(UserCard);

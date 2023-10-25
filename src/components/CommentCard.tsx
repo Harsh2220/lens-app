@@ -4,7 +4,7 @@ import getRawURL from "@/utils/getRawURL";
 import { Comment } from "@lens-protocol/react-web";
 import React from "react";
 
-export default function CommentCard({ comment }: { comment: Comment }) {
+function CommentCard({ comment }: { comment: Comment }) {
   return (
     <div className="sm:max-w-sm md:max-w-lg lg:max-w-2xl p-4 border rounded-lg border-white border-opacity-10 hover:bg-white hover:bg-opacity-5 cursor-pointer">
       <div className="flex items-center gap-4">
@@ -31,3 +31,5 @@ export default function CommentCard({ comment }: { comment: Comment }) {
     </div>
   );
 }
+
+export default React.memo(CommentCard);

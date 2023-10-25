@@ -6,12 +6,9 @@ import getIPFSLink from "@/utils/getIPFSLink";
 import getRawURL from "@/utils/getRawURL";
 import { Post } from "@lens-protocol/react-web";
 import { useRouter } from "next/navigation";
+import React from "react";
 
-export default function PublicationCard({
-  publication,
-}: {
-  publication: Post;
-}) {
+function PublicationCard({ publication }: { publication: Post }) {
   const router = useRouter();
   const { setActivePublication } = useActivePublicationStore();
 
@@ -49,3 +46,5 @@ export default function PublicationCard({
     </div>
   );
 }
+
+export default React.memo(PublicationCard);
