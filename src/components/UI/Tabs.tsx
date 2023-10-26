@@ -19,7 +19,9 @@ export function Tabs() {
   useEffect(() => {
     function setTabPosition() {
       const currentTab = tabsRef.current[activeTabIndex];
+      //@ts-expect-error
       setTabUnderlineLeft(currentTab?.offsetLeft ?? 0);
+      //@ts-expect-error
       setTabUnderlineWidth(currentTab?.clientWidth ?? 0);
     }
 
@@ -37,7 +39,8 @@ export function Tabs() {
             return (
               <button
                 key={id}
-                ref={(el) => (tabsRef.current[id] = el)}
+                //@ts-expect-error
+                ref={(el) => (tabsRef?.current[id] = el)}
                 className="pt-2 pb-3 text-2xl font-semibold"
                 onClick={() => setActiveTabIndex(id)}
               >
