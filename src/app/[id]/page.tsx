@@ -3,8 +3,22 @@
 import UserCard from "@/components/UserCard";
 import UserPublications from "@/components/UserPublications";
 import { useProfile } from "@lens-protocol/react-web";
+import { useEffect } from "react";
 
 export default function User({ params }: { params: { id: string } }) {
+  useEffect(() => {
+    const detectDeviceType = () =>
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      )
+        ? "Mobile"
+        : "Desktop";
+    const deviceType = detectDeviceType();
+    if (deviceType === "Mobile") {
+      window.location.replace(`https://orb.ac/${params.id}`);
+    }
+  }, [params.id]);
+
   const handle = params.id.slice(3);
   const {
     data: profile,
