@@ -15,7 +15,7 @@ export default function User({ params }: { params: { id: string } }) {
         : "Desktop";
     const deviceType = detectDeviceType();
     if (deviceType === "Mobile") {
-      window.location.replace(`app.orb.flutter://${params.id}`);
+      window.location.replace(`https://orb.ac/${params.id}`);
     }
   }, [params.id]);
 
