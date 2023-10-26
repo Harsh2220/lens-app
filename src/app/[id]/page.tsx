@@ -20,6 +20,7 @@ export default function User({ params }: { params: { id: string } }) {
   }, [params.id]);
 
   const handle = params.id.slice(3);
+
   const {
     data: profile,
     loading,
