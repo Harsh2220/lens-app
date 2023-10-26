@@ -8,6 +8,9 @@ import { InjectedConnector } from "wagmi/connectors/injected";
 import { publicProvider } from "wagmi/providers/public";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import DownloadApp from "@/components/DownloadApp";
+import { useEffect, useState } from "react";
+import detectDeviceType from "@/utils/getDeviceType";
 
 const { publicClient, webSocketPublicClient } = configureChains(
   [polygonMumbai, polygon],
@@ -37,6 +40,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const deviceType = detectDeviceType();
+    if (deviceType === "Desktop") {
+      setIsDesktop(true);
+    }
+  }, []);
+
   return (
     <html lang="en">
       <WagmiConfig config={config}>
@@ -44,6 +56,7 @@ export default function RootLayout({
           <body>
             <Navbar />
             {children}
+            {isDesktop ? <DownloadApp /> : null}
           </body>
         </LensProvider>
       </WagmiConfig>
