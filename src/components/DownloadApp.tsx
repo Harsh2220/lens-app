@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "./UI/Modal";
-import { Tabs } from "./UI/Tabs";
+import Tabs from "./Tabs";
 
 function CloseIcon() {
   return (
