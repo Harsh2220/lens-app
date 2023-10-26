@@ -14,7 +14,10 @@ export default function ProfileLayout({
           <title>{`@${handle}`}</title>
           <meta property="og:type" content="website" />
           <meta property="og:title" content={`@${handle}`} />
-          <meta property="og:image" content={`/api/@${handle}`} />
+          <meta
+            property="og:image"
+            content={`/api/profile?handle=@${handle}`}
+          />
         </head>
         <body>{children}</body>
       </html>
